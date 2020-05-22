@@ -6,7 +6,7 @@
 using namespace std;
 
 //ищем количество слов
-int wordAmount(char* str, int wordCount)
+int WordAmount(char* str, int wordCount)
 {
 	for (int i = 0; str[i] != '\0'; i++)
 	{
@@ -68,6 +68,16 @@ void Output(char** words, int wordCount)
 	}
 }
 
+void Delete(char** words, char* temp, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		free(words[i]);
+	}
+	free(words);
+	free(temp);
+}
+
 int main()
 {
 	FILE* file;
@@ -85,7 +95,7 @@ int main()
 	} 
 	fgets(str, sizeof(str), file);
 
-	int wordCount = wordAmount(str, 1);
+	int wordCount = WordAmount(str, 1);
 	ArrayFilling(str, n, words, position);
 	cout << " Words in file: \n";
 	Output(words, wordCount);
@@ -93,4 +103,5 @@ int main()
 	Sort(words, temp, wordCount);
 	cout << " Words in alphabetical order: \n";
 	Output(words, wordCount);
+	Delete(words, temp, n);
 }
