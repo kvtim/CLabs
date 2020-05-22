@@ -12,7 +12,7 @@
 
 using namespace std;
 
-char **sort(char** words, int n)
+char **Sort(char** words, int n)
 {
 	for (int i = 0; i < n; i++)
 		for (int j = 0; j < n; j++)
@@ -54,7 +54,7 @@ int main()
 		cin >> words[i];
 	}
 
-	sort(words, n);
+	Sort(words, n);
 
 	cout << " Words after sort: ";
 	for (int i = 0; i < n; i++)
