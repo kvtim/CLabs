@@ -29,6 +29,15 @@ char **sort(char** words, int n)
 	return words;
 }
 
+void Delete(char** words)
+{
+	for (int i = 0; i < 8; i++)
+	{
+		free(words[i]);
+	}
+	free(words);
+}
+
 int main()
 {
 	int n;
@@ -52,4 +61,5 @@ int main()
 	{
 		cout << endl << words[i];
 	}
+		Delete(words);
 }
