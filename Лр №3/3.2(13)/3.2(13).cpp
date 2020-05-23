@@ -73,6 +73,13 @@ int** sort(int n, int m, int** arr)
 	return arr;
 }
 
+void Delete(int** arr, int n)
+{
+	for (int i = 0; i < n; i++)  
+		free(arr[i]);  
+	free(arr);
+}
+
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -94,4 +101,5 @@ int main()
 	sort(n, m, arr);
 	cout << " Отсортированный массив: \n";
 	output_arrr(n, m, arr);
+	Delete(arr, n);
 }
